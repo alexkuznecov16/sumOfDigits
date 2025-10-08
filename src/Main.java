@@ -26,7 +26,7 @@ public class Main {
         while (true) {
             System.out.print("Enter number to get sum of digits: ");
             try {
-                number = scanner.nextInt(); // if input value is not integer - will be executed catch block
+                number = scanner.nextInt(); // if throws an exception - the catch block is executed
                 break;
             } catch (Exception e) {
                 System.out.println("Error: please enter only integers.");
@@ -40,9 +40,12 @@ public class Main {
     // return sum of digits
     public static int getSumOfDigits(int number) {
         int sum = 0;
+        int i = 0;
         String strNumber = String.valueOf(Math.abs(number)); // make String value for iterations
-        for (int i = 0; i < strNumber.length(); i++) {
+
+        while (i < strNumber.length()) {
             sum += Integer.parseInt(String.valueOf(strNumber.charAt(i)));
+            i++;
         }
 
         return sum;
